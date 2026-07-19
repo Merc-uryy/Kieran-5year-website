@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year One</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="theme-day">
+
+  <div class="progress-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+
+  <span class="eyebrow">Year One</span>
+  <h1>Where it <em>all</em> started.</h1>
+  <p>Same class, all through school — then somehow, everything changed.</p>
+
+  <!-- blurred reward photo, comes into focus once all questions are solved -->
+  <div class="puzzle-reward" id="rewardPhoto1">
+    <img src="/photos/Year 1/Year1 (21).jpeg" alt="">
+    <p class="puzzle-reward-caption">There was only ever you.</p>
+  </div>
+
+  <!-- ============ QUESTION 1 ============ -->
+  <span class="eyebrow">Question 1 of 6</span>
+  <h1>What did we ride<br>when we first went out with <em>Keegs and Nads</em>?</h1>
+  <input type="text" id="q1Box" class="answer-box" placeholder="Your answer..." autocomplete="off">
+  <div><button class="btn" onclick="checkQ1()">Submit</button></div>
+  <p class="result-text" id="q1Result"></p>
+  <div class="question-reward" id="q1Photo">
+    <img src="/photos/Year 1/Year1 (3).jpeg" alt="">
+  </div>
+
+  <!-- ============ QUESTION 2 ============ -->
+  <div id="q2Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Question 2 of 6</span>
+    <h1>What date<br>did you ask me to be <em> your girlfriend</em>?</h1>
+    <div class="option-row">
+      <button class="option-btn" onclick="checkQ2(this, false)">26 May 2021</button>
+      <button class="option-btn" onclick="checkQ2(this, true)">20 July 2021</button>
+      <button class="option-btn" onclick="checkQ2(this, false)">20 July 2020</button>
+    </div>
+    <p class="result-text" id="q2Result"></p>
+    <div class="question-reward" id="q2Photo">
+      <img src="/photos/Year 1/Year1 (9).jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- ============ QUESTION 3 ============ -->
+  <div id="q3Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Question 3 of 6</span>
+    <h1>Where did you<br>first start <em>working</em>?</h1>
+    <input type="text" id="q3Box" class="answer-box" placeholder="Your answer..." autocomplete="off">
+    <div><button class="btn" onclick="checkQ3()">Submit</button></div>
+    <p class="result-text" id="q3Result"></p>
+    <div class="question-reward" id="q3Photo">
+      <img src="/photos/Year 1/Year1 (25).jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- ============ QUESTION 4 ============ -->
+  <div id="q4Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Question 4 of 6</span>
+    <h1>Where did we go on our first date</h1>
+    <div class="option-row">
+      <button class="option-btn" onclick="checkQ4(this, true)">The Movies</button>
+      <button class="option-btn" onclick="checkQ4(this, false)">Bass Lake</button>
+      <button class="option-btn" onclick="checkQ4(this, false)">A mountain</button>
+    </div>
+    <p class="result-text" id="q4Result"></p>
+    <div class="question-reward" id="q4Photo">
+      <img src="/photos/Year 1/Year1 (1).jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- ============ QUESTION 5 ============ -->
+  <div id="q5Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Question 5 of 6</span>
+    <h1>What movie did we watch?</h1>
+    <input type="text" id="q5Box" class="answer-box" placeholder="Your answer..." autocomplete="off">
+    <div><button class="btn" onclick="checkQ5()">Submit</button></div>
+    <p class="result-text" id="q5Result"></p>
+    <div class="question-reward" id="q5Photo">
+      <img src="/photos/Year 1/Year1 (7).jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- ============ QUESTION 6 ============ -->
+  <div id="q6Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Question 6 of 6</span>
+    <h1>Where did we spend New Years</h1>
+    <div class="option-row">
+      <button class="option-btn" onclick="checkQ6(this, false)">At Home</button>
+      <button class="option-btn" onclick="checkQ6(this, true)">Reegs' house</button>
+      <button class="option-btn" onclick="checkQ6(this, false)">The Farm</button>
+    </div>
+    <p class="result-text" id="q6Result"></p>
+    <div class="question-reward" id="q6Photo">
+      <img src="/photos/Year 1/Year1 (12).jpeg" alt="">
+    </div>
+  </div>
+
+  <!-- extra photos/videos from year 1 -->
+  <div id="galleryBlock1" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+
+    <p class="polaroid-hint">a few favourites from year one (drag these around)</p>
+    <div class="polaroid-board" id="board1">
+      <div class="polaroid" data-file="Year1 (2).jpeg" data-caption="Our trip around Henley">
+        <img src="/photos/Year 1/Year1 (2).jpeg" alt="">
+        <p class="polaroid-caption">Our trip around Henley</p>
+      </div>
+      <div class="polaroid" data-file="Year1 (5).jpeg" data-caption="Our first proper picture together">
+        <img src="/photos/Year 1/Year1 (5).jpeg" alt="">
+        <p class="polaroid-caption">Our first proper picture together</p>
+      </div>
+      <div class="polaroid" data-file="Year1 (14).jpeg" data-caption="A cute little Adventure">
+        <img src="/photos/Year 1/Year1 (14).jpeg" alt="">
+        <p class="polaroid-caption">A cute little Adventure</p>
+      </div>
+    </div>
+
+    <p class="polaroid-hint">and the rest (tap to view)</p>
+    <div class="filmstrip" id="filmstrip1"></div>
+  </div>
+
+  <a id="nextLink" class="btn btn-hidden" style="margin-top:16px;" href="puzzle2.html">Continue to Year Two →</a>
+
+  <footer>page 2 of 7</footer>
+
+  <script>
+    const q1Accepted = ["motorbike", "a motorbike", "husqvarna", "dirtbike"];
+    const q3Accepted = ["mollys", "molly's"];
+    const q5Accepted = ["trolls"];
+
+    function reveal(id) { document.getElementById(id).classList.remove("btn-hidden"); }
+
+    function checkQ1() {
+      const input = document.getElementById("q1Box").value.trim().toLowerCase();
+      const result = document.getElementById("q1Result");
+      if (q1Accepted.includes(input)) {
+        result.textContent = "That's right, my love.";
+        document.getElementById("q1Photo").classList.add("show");
+        reveal("q2Block");
+      } else { result.textContent = "Not quite, try again."; }
+    }
+
+    function checkQ2(button, isCorrect) {
+      const result = document.getElementById("q2Result");
+      document.querySelectorAll("#q2Block .option-btn").forEach(b => b.classList.remove("correct", "wrong"));
+      if (isCorrect) {
+        button.classList.add("correct");
+        result.textContent = "Exactly.";
+        document.getElementById("q2Photo").classList.add("show");
+        reveal("q3Block");
+      } else {
+        button.classList.add("wrong");
+        result.textContent = "Not this one, try again.";
+      }
+    }
+
+    function checkQ3() {
+      const input = document.getElementById("q3Box").value.trim().toLowerCase();
+      const result = document.getElementById("q3Result");
+      if (q3Accepted.includes(input)) {
+        result.textContent = "Correct.";
+        document.getElementById("q3Photo").classList.add("show");
+        reveal("q4Block");
+      } else { result.textContent = "Try again."; }
+    }
+
+    function checkQ4(button, isCorrect) {
+      const result = document.getElementById("q4Result");
+      document.querySelectorAll("#q4Block .option-btn").forEach(b => b.classList.remove("correct", "wrong"));
+      if (isCorrect) {
+        button.classList.add("correct");
+        result.textContent = "Correct.";
+        document.getElementById("q4Photo").classList.add("show");
+        reveal("q5Block");
+      } else {
+        button.classList.add("wrong");
+        result.textContent = "Try again.";
+      }
+    }
+
+    function checkQ5() {
+      const input = document.getElementById("q5Box").value.trim().toLowerCase();
+      const result = document.getElementById("q5Result");
+      if (q5Accepted.includes(input)) {
+        result.textContent = "Correct.";
+        document.getElementById("q5Photo").classList.add("show");
+        reveal("q6Block");
+      } else { result.textContent = "Not quite."; }
+    }
+
+    function checkQ6(button, isCorrect) {
+      const result = document.getElementById("q6Result");
+      document.querySelectorAll("#q6Block .option-btn").forEach(b => b.classList.remove("correct", "wrong"));
+
+      if (isCorrect) {
+        button.classList.add("correct");
+        result.textContent = "That's all of them.";
+        document.getElementById("q6Photo").classList.add("show");
+        document.getElementById("rewardPhoto1").classList.add("revealed");
+        pinRewardPhoto("/photos/Year 1/Year1 (21).jpeg", "There was only ever you.");
+        reveal("galleryBlock1");
+        reveal("nextLink");
+
+        scatterPolaroids("board1", "/photos/Year 1");
+
+        // EDIT THIS: list every extra year 1 photo you want in the filmstrip
+        buildFilmstrip("filmstrip1", "/photos/Year 1", [
+          { file: "Year1 (7).jpeg", caption: "" },
+          { file: "Year1 (11).jpeg", caption: "" },
+          { file: "Year1 (16).jpeg", caption: "" },
+          { file: "Year1 (19).jpeg", caption: "" },
+          { file: "Year1 (20).jpeg", caption: "" },
+          { file: "Year1 (18).jpeg", caption: "" },
+          { file: "Year1 (21).jpeg", caption: "" },
+          { file: "Year1 (13).jpeg", caption: "" },
+          { file: "Year1 (2).jpeg", caption: "" },
+        ]);
+      } else {
+        button.classList.add("wrong");
+        result.textContent = "Try again.";
+      }
+    }
+
+    document.getElementById("q1Box").addEventListener("keydown", e => { if (e.key === "Enter") checkQ1(); });
+    document.getElementById("q3Box").addEventListener("keydown", e => { if (e.key === "Enter") checkQ3(); });
+    document.getElementById("q5Box").addEventListener("keydown", e => { if (e.key === "Enter") checkQ5(); });
+  </script>
+
+  <script src="/js/gallery.js"></script>
+  <script src="/js/popup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year Four</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="theme-dusk">
+
+  <div class="progress-dots">
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+
+  <span class="eyebrow">Year Four</span>
+  <h1>Coming home<br>to <em>each other</em>.</h1>
+  <p>Five words, five little pieces of what it's like having you.</p>
+
+  <!-- ============ WORD 1 ============ -->
+  <div id="scramble1Block">
+    <span class="eyebrow">Word 1 of 5</span>
+    <h1>The first thing you do<br>the moment you come home to me.</h1>
+    <div class="spelled-word" id="spelledWord1"></div>
+    <div class="letter-tiles" id="letterTiles1"></div>
+    <p class="scramble-status" id="scrambleStatus1"></p>
+    <div>
+      <button class="btn btn-secondary" onclick="backspace(1)">Backspace</button>
+      <button class="btn" onclick="checkWord(1)">Submit</button>
+    </div>
+    <div class="question-reward" id="photo1"><img src="/photos/Year 4/Year4 (1).jpeg" alt=""></div>
+  </div>
+
+  <!-- ============ WORD 2 ============ -->
+  <div id="scramble2Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Word 2 of 5</span>
+    <h1>What is your<br>Favourite, chocolate?</h1>
+    <div class="spelled-word" id="spelledWord2"></div>
+    <div class="letter-tiles" id="letterTiles2"></div>
+    <p class="scramble-status" id="scrambleStatus2"></p>
+    <div>
+      <button class="btn btn-secondary" onclick="backspace(2)">Backspace</button>
+      <button class="btn" onclick="checkWord(2)">Submit</button>
+    </div>
+    <div class="question-reward" id="photo2"><img src="/photos/Year 4/Year4 (2).jpeg" alt=""></div>
+  </div>
+
+  <!-- ============ WORD 3 ============ -->
+  <div id="scramble3Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Word 3 of 5</span>
+    <h1>What is one word,<br>everyone would describe you as?</h1>
+    <div class="spelled-word" id="spelledWord3"></div>
+    <div class="letter-tiles" id="letterTiles3"></div>
+    <p class="scramble-status" id="scrambleStatus3"></p>
+    <div>
+      <button class="btn btn-secondary" onclick="backspace(3)">Backspace</button>
+      <button class="btn" onclick="checkWord(3)">Submit</button>
+    </div>
+    <div class="question-reward" id="photo3"><img src="/photos/Year 4/Year4 (3).jpeg" alt=""></div>
+  </div>
+
+  <!-- ============ WORD 4 ============ -->
+  <div id="scramble4Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Word 4 of 5</span>
+    <h1>How do you make me<br> feel every single day being your partner?</h1>
+    <div class="spelled-word" id="spelledWord4"></div>
+    <div class="letter-tiles" id="letterTiles4"></div>
+    <p class="scramble-status" id="scrambleStatus4"></p>
+    <div>
+      <button class="btn btn-secondary" onclick="backspace(4)">Backspace</button>
+      <button class="btn" onclick="checkWord(4)">Submit</button>
+    </div>
+    <div class="question-reward" id="photo4"><img src="/photos/Year 4/Year4 (4).jpeg" alt=""></div>
+  </div>
+
+  <!-- ============ WORD 5 ============ -->
+  <div id="scramble5Block" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">Word 5 of 5</span>
+    <h1>What it feels like,<br>every single time we close the gap.</h1>
+    <div class="spelled-word" id="spelledWord5"></div>
+    <div class="letter-tiles" id="letterTiles5"></div>
+    <p class="scramble-status" id="scrambleStatus5"></p>
+    <div>
+      <button class="btn btn-secondary" onclick="backspace(5)">Backspace</button>
+      <button class="btn" onclick="checkWord(5)">Submit</button>
+    </div>
+    <div class="question-reward" id="photo5"><img src="/photos/Year 4/Year4 (5).jpeg" alt=""></div>
+  </div>
+
+  <!-- corkboard memory wall -->
+  <div id="corkBlock" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <p class="corkboard-heading">year four, pinned up</p>
+    <div class="corkboard" id="cork4"></div>
+  </div>
+
+  <a id="nextLink" class="btn btn-hidden" style="margin-top:16px;" href="puzzle5.html">Continue to Year Five →</a>
+
+  <footer>page 5 of 7</footer>
+
+  <script>
+    /* EDIT THESE: one word per puzzle, capital letters only. */
+    const answerWords = {
+      1: "CUDDLE",
+      2: "LINDT",
+      3: "INCREDIBLE",
+      4: "SPOILT",
+      5: "PERFECT"
+    };
+
+    const state = {};
+
+    function setupScramble(i) {
+      const word = answerWords[i];
+      let letters = word.split("");
+      letters.sort(() => Math.random() - 0.5);
+
+      state[i] = { spelled: [], usedTileIndexes: [], letters: letters };
+
+      const tilesContainer = document.getElementById("letterTiles" + i);
+      const wordContainer = document.getElementById("spelledWord" + i);
+
+      letters.forEach((letter, index) => {
+        const tile = document.createElement("button");
+        tile.className = "letter-tile";
+        tile.textContent = letter;
+        tile.dataset.index = index;
+        tile.addEventListener("click", () => pickLetter(i, index, letter, tile));
+        tilesContainer.appendChild(tile);
+      });
+
+      word.split("").forEach(() => {
+        const slot = document.createElement("div");
+        slot.className = "spelled-slot";
+        wordContainer.appendChild(slot);
+      });
+    }
+
+    function pickLetter(i, index, letter, tile) {
+      const s = state[i];
+      const word = answerWords[i];
+      if (s.spelled.length >= word.length) return;
+
+      s.spelled.push(letter);
+      s.usedTileIndexes.push(index);
+      tile.classList.add("used");
+
+      const slots = document.querySelectorAll("#spelledWord" + i + " .spelled-slot");
+      slots[s.spelled.length - 1].textContent = letter;
+    }
+
+    function backspace(i) {
+      const s = state[i];
+      if (s.spelled.length === 0) return;
+
+      const lastTileIndex = s.usedTileIndexes.pop();
+      s.spelled.pop();
+
+      const tile = document.querySelector("#letterTiles" + i + ' [data-index="' + lastTileIndex + '"]');
+      tile.classList.remove("used");
+
+      const slots = document.querySelectorAll("#spelledWord" + i + " .spelled-slot");
+      slots[s.spelled.length].textContent = "";
+    }
+
+    function checkWord(i) {
+      const s = state[i];
+      const word = answerWords[i];
+      const status = document.getElementById("scrambleStatus" + i);
+      const guess = s.spelled.join("");
+
+      if (guess === word) {
+        status.textContent = "Such a smartie!";
+        document.getElementById("photo" + i).classList.add("show");
+
+        if (i < 5) {
+          document.getElementById("scramble" + (i + 1) + "Block").classList.remove("btn-hidden");
+        } else {
+          finishYear();
+        }
+      } else {
+        status.textContent = "No no silly goose.";
+        s.spelled = [];
+        s.usedTileIndexes = [];
+        document.querySelectorAll("#spelledWord" + i + " .spelled-slot").forEach(el => el.textContent = "");
+        document.querySelectorAll("#letterTiles" + i + " .letter-tile").forEach(el => el.classList.remove("used"));
+      }
+    }
+
+    function finishYear() {
+      pinRewardPhoto("/photos/Year 4/Year4 (1).jpeg", "Coming home to each other.");
+      document.getElementById("corkBlock").classList.remove("btn-hidden");
+      document.getElementById("nextLink").classList.remove("btn-hidden");
+
+      // EDIT THIS: list every year 4 photo you want pinned to the board
+      buildCorkboard("cork4", "/photos/Year 4", [
+        "Year4 (6).jpeg", "Year4 (7).jpeg", "Year4 (8).jpeg", "Year4 (9).jpeg", "Year4 (10).jpeg",
+        "Year4 (11).jpeg", "Year4 (12).jpeg", "Year4 (13).jpeg", "Year4 (14).jpeg", "Year4 (15).jpeg"
+      ]);
+    }
+
+    for (let i = 1; i <= 5; i++) {
+      setupScramble(i);
+    }
+  </script>
+
+  <script src="/js/gallery.js"></script>
+  <script src="/js/popup.js"></script>
+
+</body>
+</html>

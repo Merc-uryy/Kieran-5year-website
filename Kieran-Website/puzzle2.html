@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year Two — The Year of Firsts</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="theme-midday">
+
+  <div class="progress-dots">
+    <span class="dot"></span>
+    <span class="dot active"></span>
+    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+
+  <span class="eyebrow">Year Two</span>
+  <h1>The year of <em>firsts</em>.</h1>
+  <p>Fill in the story as it happened — take your time, I've left you hints.</p>
+
+  <div class="story-block">
+
+    <p class="story-text">
+      Year two was the year of firsts. We explored through
+      <span class="story-blank" id="blank1">______</span>
+      that seemed to stretch on forever.
+    </p>
+
+    <!-- BLANK 1 -->
+    <div id="fill1Block">
+      <div class="option-row">
+        <button class="option-btn" onclick="checkBlank(1, this, false)">the vineyards</button>
+        <button class="option-btn" onclick="checkBlank(1, this, true)">the mielie fields</button>
+        <button class="option-btn" onclick="checkBlank(1, this, false)">the orchards</button>
+      </div>
+      <button class="hint-btn" onclick="toggleHint(1)">Need a hint?</button>
+      <p class="hint-text" id="hintText1">Think tall, golden, and ... popcorn.</p>
+      <p class="result-text" id="result1"></p>
+      <div class="question-reward" id="photo1"><img src="/photos/Year 2/corn.jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 2 -->
+    <div id="fill2Block" class="btn-hidden">
+      <p class="story-text">
+        That summer we rode
+        <span class="story-blank" id="blank2">______</span>
+        and spent the whole day out on the water at River Rats.
+      </p>
+      <div class="option-row">
+        <button class="option-btn" onclick="checkBlank(2, this, false)">my brother's boat</button>
+        <button class="option-btn" onclick="checkBlank(2, this, true)">your brother's boat</button>
+        <button class="option-btn" onclick="checkBlank(2, this, false)">a rental boat</button>
+      </div>
+      <button class="hint-btn" onclick="toggleHint(2)">Need a hint?</button>
+      <p class="hint-text" id="hintText2">Family, not a stranger's.</p>
+      <p class="result-text" id="result2"></p>
+      <div class="question-reward" id="photo2"><img src="/photos/Year 2/Year2 (4).jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 3 — matric dance -->
+    <div id="fill3Block" class="btn-hidden">
+      <p class="story-text">
+        Then came November, and matric dance, and I don't think I've ever seen you look more
+        <span class="story-blank" id="blank3">______</span>
+        than you did that night.
+      </p>
+      <div class="option-row">
+        <button class="option-btn" onclick="checkBlank(3, this, false)">good</button>
+        <button class="option-btn" onclick="checkBlank(3, this, true)">super duper handsome</button>
+        <button class="option-btn" onclick="checkBlank(3, this, false)">a bit tired</button>
+      </div>
+      <button class="hint-btn" onclick="toggleHint(3)">Need a hint?</button>
+      <p class="hint-text" id="hintText3">There's only one right answer here, and you know it!</p>
+      <p class="result-text" id="result3"></p>
+      <div class="question-reward" id="photo3"><img src="/photos/Year 2/Year2 (13).jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 4 — Melrose Arch -->
+    <div id="fill4Block" class="btn-hidden">
+      <p class="story-text">
+        After Christmas that year, we wandered around
+        <span class="story-blank" id="blank4">______</span>
+        to see all the lights.
+      </p>
+      <input type="text" id="blank4Box" class="answer-box" placeholder="Type it in..." autocomplete="off">
+      <div><button class="btn" onclick="checkTextBlank(4)">Submit</button></div>
+      <button class="hint-btn" onclick="toggleHint(4)">Need a hint?</button>
+      <p class="hint-text" id="hintText4">A shopping place near Sandton... two words.</p>
+      <p class="result-text" id="result4"></p>
+      <div class="question-reward" id="photo4"><img src="/photos/Year 2/Year2 (6).jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 5 — cheek kisses -->
+    <div id="fill5Block" class="btn-hidden">
+      <p class="story-text">
+        Somewhere between the lights and the cold, we snuck in more
+        <span class="story-blank" id="blank5">______</span>
+        than either of us could count.
+      </p>
+      <div class="option-row">
+        <button class="option-btn" onclick="checkBlank(5, this, false)">handshakes</button>
+        <button class="option-btn" onclick="checkBlank(5, this, true)">cheek kisses</button>
+        <button class="option-btn" onclick="checkBlank(5, this, false)">high fives</button>
+      </div>
+      <button class="hint-btn" onclick="toggleHint(5)">Need a hint?</button>
+      <p class="hint-text" id="hintText5">Somewhere between a hug and a real kiss.</p>
+      <p class="result-text" id="result5"></p>
+      <div class="question-reward" id="photo5"><img src="/photos/Year 2/Year2 (60).jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 6 — US trip -->
+    <div id="fill6Block" class="btn-hidden">
+      <p class="story-text">
+        And that year, we did something exciting. Our first international trip together, all the way to
+        <span class="story-blank" id="blank6">______</span>.
+      </p>
+      <input type="text" id="blank6Box" class="answer-box" placeholder="Type it in..." autocomplete="off">
+      <div><button class="btn" onclick="checkTextBlank(6)">Submit</button></div>
+      <button class="hint-btn" onclick="toggleHint(6)">Need a hint?</button>
+      <p class="hint-text" id="hintText6">Stars and stripes.</p>
+      <p class="result-text" id="result6"></p>
+      <div class="question-reward" id="photo6"><img src="/photos/Year 2/Year2 (43).jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 7 — ice skating -->
+    <div id="fill7Block" class="btn-hidden">
+      <p class="story-text">
+        We also tried
+        <span class="story-blank" id="blank7">______</span>
+        for the very first time, and had purple slushies, and took pictures more than we skated.
+      </p>
+      <input type="text" id="blank7Box" class="answer-box" placeholder="Type it in..." autocomplete="off">
+      <div><button class="btn" onclick="checkTextBlank(7)">Submit</button></div>
+      <button class="hint-btn" onclick="toggleHint(7)">Need a hint?</button>
+      <p class="hint-text" id="hintText7">Cold, slippery, and we were pretty good at it.</p>
+      <p class="result-text" id="result7"></p>
+      <div class="question-reward" id="photo7"><img src="/photos/Year 2/Year2 (56).jpeg" alt=""></div>
+    </div>
+
+    <!-- BLANK 8 — the duck -->
+    <div id="fill8Block" class="btn-hidden">
+      <p class="story-text">
+        And somewhere in the middle of it all, completely out of nowhere, we made a very unexpected little friend, a
+        <span class="story-blank" id="blank8">______</span>.
+      </p>
+      <input type="text" id="blank8Box" class="answer-box" placeholder="Type it in..." autocomplete="off">
+      <div><button class="btn" onclick="checkTextBlank(8)">Submit</button></div>
+      <button class="hint-btn" onclick="toggleHint(8)">Need a hint?</button>
+      <p class="hint-text" id="hintText8">It quacked.</p>
+      <p class="result-text" id="result8"></p>
+      <div class="question-reward" id="photo8"><img src="/photos/Year 2/WhatsApp Image 2026-07-19 at 11.20.48 AM.jpeg" alt=""></div>
+    </div>
+
+  </div>
+
+  <!-- all year 2 photos, masonry style -->
+  <div id="galleryBlock2" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <p class="masonry-heading">year two, in pictures. Click them to make them bigger!</p>
+    <div class="masonry-grid" id="masonry2"></div>
+  </div>
+
+  <a id="nextLink" class="btn btn-hidden" style="margin-top:16px;" href="puzzle3.html">Continue to Year Three →</a>
+
+  <footer>page 3 of 7</footer>
+
+  <script>
+    const textAnswers = {
+      4: ["melrose arch", "melrose"],
+      6: ["the us", "the usa", "usa", "us", "america", "the united states", "united states", "texas"],
+      7: ["ice skating", "skating"],
+      8: ["duck", "a duck"]
+    };
+
+    function reveal(id) { document.getElementById(id).classList.remove("btn-hidden"); }
+    function toggleHint(n) { document.getElementById("hintText" + n).classList.toggle("show"); }
+    function fillBlank(n, text) { document.getElementById("blank" + n).textContent = text; }
+
+    // for multiple-choice blanks (1, 2, 3, 5)
+    function checkBlank(n, button, isCorrect) {
+      const result = document.getElementById("result" + n);
+      const block = button.closest("div[id^='fill" + n + "Block']");
+      block.querySelectorAll(".option-btn").forEach(b => b.classList.remove("correct", "wrong"));
+
+      if (isCorrect) {
+        button.classList.add("correct");
+        result.textContent = "That's right.";
+        fillBlank(n, button.textContent);
+        document.getElementById("photo" + n).classList.add("show");
+        reveal("fill" + (n + 1) + "Block");
+      } else {
+        button.classList.add("wrong");
+        result.textContent = "Not a chance.";
+      }
+    }
+
+    // for typed blanks (4, 6, 7, 8)
+    function checkTextBlank(n) {
+      const input = document.getElementById("blank" + n + "Box").value.trim().toLowerCase();
+      const result = document.getElementById("result" + n);
+
+      if (textAnswers[n].includes(input)) {
+        result.textContent = "That's right.";
+        fillBlank(n, document.getElementById("blank" + n + "Box").value.trim());
+        document.getElementById("photo" + n).classList.add("show");
+
+        if (n === 8) {
+          finishStory();
+        } else {
+          reveal("fill" + (n + 1) + "Block");
+        }
+      } else {
+        result.textContent = "Not quite... try again.";
+      }
+    }
+
+    function finishStory() {
+      pinRewardPhoto("/photos/Year 2/Year2 (57).jpeg", "All the firsts, in one year.");
+      reveal("galleryBlock2");
+      reveal("nextLink");
+
+      // EDIT THIS: list every year 2 photo you want in the grid —
+      // the folder path (2nd argument) needs the leading slash;
+      // filenames in the list itself do not.
+      buildMasonry("masonry2", "/photos/Year 2", [
+        "Year2 (57).jpeg", "Year2 (53).jpeg", "Year2 (48).jpeg", "Year2 (46).jpeg", "Year2 (44).jpeg",
+        "Year2 (32).jpeg", "Year2 (37).jpeg", "Year2 (24).jpeg", "Year2 (16).jpeg", "Year2 (12).jpeg"
+      ]);
+    }
+
+    document.getElementById("blank4Box").addEventListener("keydown", e => { if (e.key === "Enter") checkTextBlank(4); });
+    document.getElementById("blank6Box").addEventListener("keydown", e => { if (e.key === "Enter") checkTextBlank(6); });
+    document.getElementById("blank7Box").addEventListener("keydown", e => { if (e.key === "Enter") checkTextBlank(7); });
+    document.getElementById("blank8Box").addEventListener("keydown", e => { if (e.key === "Enter") checkTextBlank(8); });
+  </script>
+
+  <script src="/js/gallery.js"></script>
+  <script src="/js/popup.js"></script>
+
+</body>
+</html>

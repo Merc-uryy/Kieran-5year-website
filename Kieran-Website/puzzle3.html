@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year Three</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="theme-sunset">
+
+  <div class="progress-dots">
+    <span class="dot"></span><span class="dot"></span>
+    <span class="dot active"></span>
+    <span class="dot"></span><span class="dot"></span>
+  </div>
+
+  <span class="eyebrow">Year Three</span>
+  <h1>The year of the <em>Freedom</em>.</h1>
+  <p>Match each photo to the word that fits it best from our third year Together.</p>
+
+  <p class="memory-status" id="status">0 of 6 pairs found</p>
+
+  <div class="memory-grid" id="grid"></div>
+
+  <!-- milestone photo, appears after 2 pairs -->
+  <div class="milestone-photo" id="milestone1">
+    <img src="/photos/Year 3/Year3 (7).jpeg" alt="">
+    <p class="milestone-caption">Nothing but love for you</p>
+  </div>
+
+  <!-- milestone photo, appears after 4 pairs -->
+  <div class="milestone-photo" id="milestone2">
+    <img src="/photos/Year 3/Year3 (27).jpeg" alt="">
+    <p class="milestone-caption">No one but you</p>
+  </div>
+
+  <!-- combination lock, appears once all pairs are found, gates the collage -->
+  <div id="lockBlock" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <span class="eyebrow">One Last Lock</span>
+    <h1>Dial in the date<br>of my favourite persons <em>Birthday</em>.</h1>
+    <p>Use the arrows to set the day and month.</p>
+
+    <div class="lock-wheels" id="lockWheels"></div>
+    <p class="lock-status" id="lockStatus"></p>
+    <div><button class="btn" onclick="checkLock()">Unlock</button></div>
+  </div>
+
+  <!-- all year 3 photos, masonry style — stays hidden until the lock opens -->
+  <div id="galleryBlock3" class="btn-hidden">
+    <hr style="width:60px; border:none; border-top:1.5px solid var(--gold); margin:30px 0;">
+    <p class="masonry-heading">year three, some of my favourites</p>
+    <div class="masonry-grid" id="masonry3"></div>
+  </div>
+
+  <a id="nextLink" class="btn btn-hidden" style="margin-top:16px;" href="puzzle4.html">Continue to Year Four →</a>
+
+  <footer>page 4 of 7</footer>
+
+  <script>
+    /* EDIT THIS: each pair is one photo + one word describing it.
+       pairId links them — must match exactly between the two entries.
+       Swap the "file" values for your real year 3 photos. */
+    const cardData = [
+      { pairId: 1, type: "image", file: "Year3 (28).jpeg" },
+      { pairId: 1, type: "word",  text: "Vaal" },
+
+      { pairId: 2, type: "image", file: "Year3 (26).jpeg" },
+      { pairId: 2, type: "word",  text: "Valentines" },
+
+      { pairId: 3, type: "image", file: "Year3 (22).jpeg" },
+      { pairId: 3, type: "word",  text: "Favourite" },
+
+      { pairId: 4, type: "image", file: "Year3 (6).jpeg" },
+      { pairId: 4, type: "word",  text: "Celebrate" },
+
+      { pairId: 5, type: "image", file: "Year3 (3).jpeg" },
+      { pairId: 5, type: "word",  text: "Fun" },
+
+      { pairId: 6, type: "image", file: "Year3 (4).jpeg" },
+      { pairId: 6, type: "word",  text: "Joy" }
+    ];
+
+    // EDIT THIS: real date of the 21st, e.g. July 14th = [0,7,1,4]
+    const correctDigits = [1, 8, 0, 2];
+    let currentDigits = [0, 0, 0, 0];
+
+    let cards = [...cardData];
+    cards.sort(() => Math.random() - 0.5);
+
+    let flippedCards = [];
+    let matchedCount = 0;
+    let lock = false;
+    const totalPairs = cardData.length / 2;
+
+    const grid = document.getElementById("grid");
+
+    cards.forEach((card) => {
+      const cardEl = document.createElement("div");
+      cardEl.className = "memory-card";
+      cardEl.dataset.pairId = card.pairId;
+
+      if (card.type === "image") {
+        const img = document.createElement("img");
+        img.className = "match-card-img";
+        img.src = "/photos/Year 3/" + card.file;
+        cardEl.appendChild(img);
+      } else {
+        const span = document.createElement("span");
+        span.className = "match-card-word";
+        span.textContent = card.text;
+        cardEl.appendChild(span);
+      }
+
+      cardEl.addEventListener("click", () => flipCard(cardEl));
+      grid.appendChild(cardEl);
+    });
+
+    function flipCard(cardEl) {
+      if (lock) return;
+      if (cardEl.classList.contains("flipped") || cardEl.classList.contains("matched")) return;
+      if (flippedCards.length === 2) return;
+
+      cardEl.classList.add("flipped");
+      flippedCards.push(cardEl);
+
+      if (flippedCards.length === 2) {
+        checkMatch();
+      }
+    }
+
+    function checkMatch() {
+      const [first, second] = flippedCards;
+
+      if (first.dataset.pairId === second.dataset.pairId) {
+        first.classList.add("matched");
+        second.classList.add("matched");
+        matchedCount++;
+        document.getElementById("status").textContent = matchedCount + " of " + totalPairs + " pairs found";
+        flippedCards = [];
+
+        if (matchedCount === 2) {
+          document.getElementById("milestone1").classList.add("show");
+        }
+        if (matchedCount === 4) {
+          document.getElementById("milestone2").classList.add("show");
+        }
+
+        if (matchedCount === totalPairs) {
+          document.getElementById("status").textContent = "All pairs found.";
+          document.getElementById("lockBlock").classList.remove("btn-hidden");
+          buildLock();
+        }
+      } else {
+        lock = true;
+        setTimeout(() => {
+          first.classList.remove("flipped");
+          second.classList.remove("flipped");
+          flippedCards = [];
+          lock = false;
+        }, 700);
+      }
+    }
+
+    function buildLock() {
+      const wheelsContainer = document.getElementById("lockWheels");
+      wheelsContainer.innerHTML = "";
+      correctDigits.forEach((_, i) => {
+        const wheel = document.createElement("div");
+        wheel.className = "lock-wheel";
+        wheel.innerHTML = `
+          <button class="lock-arrow" onclick="changeDigit(${i}, 1)">▲</button>
+          <div class="lock-digit" id="digit${i}">0</div>
+          <button class="lock-arrow" onclick="changeDigit(${i}, -1)">▼</button>
+        `;
+        wheelsContainer.appendChild(wheel);
+      });
+    }
+
+    function changeDigit(index, direction) {
+      currentDigits[index] = (currentDigits[index] + direction + 10) % 10;
+      document.getElementById("digit" + index).textContent = currentDigits[index];
+    }
+
+    function checkLock() {
+      const status = document.getElementById("lockStatus");
+      const isCorrect = currentDigits.every((d, i) => d === correctDigits[i]);
+
+      if (isCorrect) {
+        status.textContent = "The lock clicks open.";
+        pinRewardPhoto("/photos/Year 3/Year3 (1).jpeg", "Your face when you realised it was real.");
+        document.getElementById("galleryBlock3").classList.remove("btn-hidden");
+        document.getElementById("nextLink").classList.remove("btn-hidden");
+
+        // EDIT THIS: list every year 3 photo you want in the grid
+        buildMasonry("masonry3", "/photos/Year 3", [
+          "Year3 (9).jpeg", "Year3 (10).jpeg", "Year3 (5).jpeg", "Year3 (12).jpeg", "Year3 (13).jpeg",
+          "Year3 (14).jpeg", "Year3 (15).jpeg", "Year3 (16).jpeg", "Year3 (17).jpeg", "Year3 (18).jpeg"
+        ]);
+      } else {
+        status.textContent = "Not quite the right date — try again.";
+      }
+    }
+  </script>
+
+  <script src="/js/gallery.js"></script>
+  <script src="/js/popup.js"></script>
+
+</body>
+</html>
