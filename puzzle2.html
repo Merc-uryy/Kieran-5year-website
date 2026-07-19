@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Year Two — The Year of Firsts</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="theme-midday">
@@ -37,7 +37,7 @@
       <button class="hint-btn" onclick="toggleHint(1)">Need a hint?</button>
       <p class="hint-text" id="hintText1">Think tall, golden, and ... popcorn.</p>
       <p class="result-text" id="result1"></p>
-      <div class="question-reward" id="photo1"><img src="/photos/Year 2/corn.jpeg" alt=""></div>
+      <div class="question-reward" id="photo1"><img src="photos/Year 2/corn.jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 2 -->
@@ -55,7 +55,7 @@
       <button class="hint-btn" onclick="toggleHint(2)">Need a hint?</button>
       <p class="hint-text" id="hintText2">Family, not a stranger's.</p>
       <p class="result-text" id="result2"></p>
-      <div class="question-reward" id="photo2"><img src="/photos/Year 2/Year2 (4).jpeg" alt=""></div>
+      <div class="question-reward" id="photo2"><img src="photos/Year 2/Year2 (4).jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 3 — matric dance -->
@@ -73,7 +73,7 @@
       <button class="hint-btn" onclick="toggleHint(3)">Need a hint?</button>
       <p class="hint-text" id="hintText3">There's only one right answer here, and you know it!</p>
       <p class="result-text" id="result3"></p>
-      <div class="question-reward" id="photo3"><img src="/photos/Year 2/Year2 (13).jpeg" alt=""></div>
+      <div class="question-reward" id="photo3"><img src="photos/Year 2/Year2 (13).jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 4 — Melrose Arch -->
@@ -88,7 +88,7 @@
       <button class="hint-btn" onclick="toggleHint(4)">Need a hint?</button>
       <p class="hint-text" id="hintText4">A shopping place near Sandton... two words.</p>
       <p class="result-text" id="result4"></p>
-      <div class="question-reward" id="photo4"><img src="/photos/Year 2/Year2 (6).jpeg" alt=""></div>
+      <div class="question-reward" id="photo4"><img src="photos/Year 2/Year2 (6).jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 5 — cheek kisses -->
@@ -106,7 +106,7 @@
       <button class="hint-btn" onclick="toggleHint(5)">Need a hint?</button>
       <p class="hint-text" id="hintText5">Somewhere between a hug and a real kiss.</p>
       <p class="result-text" id="result5"></p>
-      <div class="question-reward" id="photo5"><img src="/photos/Year 2/Year2 (60).jpeg" alt=""></div>
+      <div class="question-reward" id="photo5"><img src="photos/Year 2/Year2 (60).jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 6 — US trip -->
@@ -120,7 +120,7 @@
       <button class="hint-btn" onclick="toggleHint(6)">Need a hint?</button>
       <p class="hint-text" id="hintText6">Stars and stripes.</p>
       <p class="result-text" id="result6"></p>
-      <div class="question-reward" id="photo6"><img src="/photos/Year 2/Year2 (43).jpeg" alt=""></div>
+      <div class="question-reward" id="photo6"><img src="photos/Year 2/Year2 (43).jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 7 — ice skating -->
@@ -135,7 +135,7 @@
       <button class="hint-btn" onclick="toggleHint(7)">Need a hint?</button>
       <p class="hint-text" id="hintText7">Cold, slippery, and we were pretty good at it.</p>
       <p class="result-text" id="result7"></p>
-      <div class="question-reward" id="photo7"><img src="/photos/Year 2/Year2 (56).jpeg" alt=""></div>
+      <div class="question-reward" id="photo7"><img src="photos/Year 2/Year2 (56).jpeg" alt=""></div>
     </div>
 
     <!-- BLANK 8 — the duck -->
@@ -149,7 +149,7 @@
       <button class="hint-btn" onclick="toggleHint(8)">Need a hint?</button>
       <p class="hint-text" id="hintText8">It quacked.</p>
       <p class="result-text" id="result8"></p>
-      <div class="question-reward" id="photo8"><img src="/photos/Year 2/WhatsApp Image 2026-07-19 at 11.20.48 AM.jpeg" alt=""></div>
+      <div class="question-reward" id="photo8"><img src="photos/Year 2/WhatsApp Image 2026-07-19 at 11.20.48 AM.jpeg" alt=""></div>
     </div>
 
   </div>
@@ -216,14 +216,14 @@
     }
 
     function finishStory() {
-      pinRewardPhoto("/photos/Year 2/Year2 (57).jpeg", "All the firsts, in one year.");
+      pinRewardPhoto("photos/Year 2/Year2 (57).jpeg", "All the firsts, in one year.");
       reveal("galleryBlock2");
       reveal("nextLink");
 
       // EDIT THIS: list every year 2 photo you want in the grid —
       // the folder path (2nd argument) needs the leading slash;
       // filenames in the list itself do not.
-      buildMasonry("masonry2", "/photos/Year 2", [
+      buildMasonry("masonry2", "photos/Year 2", [
         "Year2 (57).jpeg", "Year2 (53).jpeg", "Year2 (48).jpeg", "Year2 (46).jpeg", "Year2 (44).jpeg",
         "Year2 (32).jpeg", "Year2 (37).jpeg", "Year2 (24).jpeg", "Year2 (16).jpeg", "Year2 (12).jpeg"
       ]);
@@ -235,8 +235,8 @@
     document.getElementById("blank8Box").addEventListener("keydown", e => { if (e.key === "Enter") checkTextBlank(8); });
   </script>
 
-  <script src="/js/gallery.js"></script>
-  <script src="/js/popup.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/popup.js"></script>
 
 </body>
 </html>

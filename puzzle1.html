@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Year One</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="theme-day">
@@ -20,7 +20,7 @@
 
   <!-- blurred reward photo, comes into focus once all questions are solved -->
   <div class="puzzle-reward" id="rewardPhoto1">
-    <img src="/photos/Year 1/Year1 (21).jpeg" alt="">
+    <img src="photos/Year 1/Year1 (21).jpeg" alt="">
     <p class="puzzle-reward-caption">There was only ever you.</p>
   </div>
 
@@ -31,7 +31,7 @@
   <div><button class="btn" onclick="checkQ1()">Submit</button></div>
   <p class="result-text" id="q1Result"></p>
   <div class="question-reward" id="q1Photo">
-    <img src="/photos/Year 1/Year1 (3).jpeg" alt="">
+    <img src="photos/Year 1/Year1 (3).jpeg" alt="">
   </div>
 
   <!-- ============ QUESTION 2 ============ -->
@@ -46,7 +46,7 @@
     </div>
     <p class="result-text" id="q2Result"></p>
     <div class="question-reward" id="q2Photo">
-      <img src="/photos/Year 1/Year1 (9).jpeg" alt="">
+      <img src="photos/Year 1/Year1 (9).jpeg" alt="">
     </div>
   </div>
 
@@ -59,7 +59,7 @@
     <div><button class="btn" onclick="checkQ3()">Submit</button></div>
     <p class="result-text" id="q3Result"></p>
     <div class="question-reward" id="q3Photo">
-      <img src="/photos/Year 1/Year1 (25).jpeg" alt="">
+      <img src="photos/Year 1/Year1 (25).jpeg" alt="">
     </div>
   </div>
 
@@ -75,7 +75,7 @@
     </div>
     <p class="result-text" id="q4Result"></p>
     <div class="question-reward" id="q4Photo">
-      <img src="/photos/Year 1/Year1 (1).jpeg" alt="">
+      <img src="photos/Year 1/Year1 (1).jpeg" alt="">
     </div>
   </div>
 
@@ -88,7 +88,7 @@
     <div><button class="btn" onclick="checkQ5()">Submit</button></div>
     <p class="result-text" id="q5Result"></p>
     <div class="question-reward" id="q5Photo">
-      <img src="/photos/Year 1/Year1 (7).jpeg" alt="">
+      <img src="photos/Year 1/Year1 (7).jpeg" alt="">
     </div>
   </div>
 
@@ -104,7 +104,7 @@
     </div>
     <p class="result-text" id="q6Result"></p>
     <div class="question-reward" id="q6Photo">
-      <img src="/photos/Year 1/Year1 (12).jpeg" alt="">
+      <img src="photos/Year 1/Year1 (12).jpeg" alt="">
     </div>
   </div>
 
@@ -115,15 +115,15 @@
     <p class="polaroid-hint">a few favourites from year one (drag these around)</p>
     <div class="polaroid-board" id="board1">
       <div class="polaroid" data-file="Year1 (2).jpeg" data-caption="Our trip around Henley">
-        <img src="/photos/Year 1/Year1 (2).jpeg" alt="">
+        <img src="photos/Year 1/Year1 (2).jpeg" alt="">
         <p class="polaroid-caption">Our trip around Henley</p>
       </div>
       <div class="polaroid" data-file="Year1 (5).jpeg" data-caption="Our first proper picture together">
-        <img src="/photos/Year 1/Year1 (5).jpeg" alt="">
+        <img src="photos/Year 1/Year1 (5).jpeg" alt="">
         <p class="polaroid-caption">Our first proper picture together</p>
       </div>
       <div class="polaroid" data-file="Year1 (14).jpeg" data-caption="A cute little Adventure">
-        <img src="/photos/Year 1/Year1 (14).jpeg" alt="">
+        <img src="photos/Year 1/Year1 (14).jpeg" alt="">
         <p class="polaroid-caption">A cute little Adventure</p>
       </div>
     </div>
@@ -210,14 +210,14 @@
         result.textContent = "That's all of them.";
         document.getElementById("q6Photo").classList.add("show");
         document.getElementById("rewardPhoto1").classList.add("revealed");
-        pinRewardPhoto("/photos/Year 1/Year1 (21).jpeg", "There was only ever you.");
+        pinRewardPhoto("photos/Year 1/Year1 (21).jpeg", "There was only ever you.");
         reveal("galleryBlock1");
         reveal("nextLink");
 
-        scatterPolaroids("board1", "/photos/Year 1");
+        scatterPolaroids("board1", "photos/Year 1");
 
         // EDIT THIS: list every extra year 1 photo you want in the filmstrip
-        buildFilmstrip("filmstrip1", "/photos/Year 1", [
+        buildFilmstrip("filmstrip1", "photos/Year 1", [
           { file: "Year1 (7).jpeg", caption: "" },
           { file: "Year1 (11).jpeg", caption: "" },
           { file: "Year1 (16).jpeg", caption: "" },
@@ -239,8 +239,8 @@
     document.getElementById("q5Box").addEventListener("keydown", e => { if (e.key === "Enter") checkQ5(); });
   </script>
 
-  <script src="/js/gallery.js"></script>
-  <script src="/js/popup.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/popup.js"></script>
 
 </body>
 </html>

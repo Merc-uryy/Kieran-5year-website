@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Year Four</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="theme-dusk">
@@ -30,7 +30,7 @@
       <button class="btn btn-secondary" onclick="backspace(1)">Backspace</button>
       <button class="btn" onclick="checkWord(1)">Submit</button>
     </div>
-    <div class="question-reward" id="photo1"><img src="/photos/Year 4/Year4 (1).jpeg" alt=""></div>
+    <div class="question-reward" id="photo1"><img src="photos/Year 4/Year4 (1).jpeg" alt=""></div>
   </div>
 
   <!-- ============ WORD 2 ============ -->
@@ -45,7 +45,7 @@
       <button class="btn btn-secondary" onclick="backspace(2)">Backspace</button>
       <button class="btn" onclick="checkWord(2)">Submit</button>
     </div>
-    <div class="question-reward" id="photo2"><img src="/photos/Year 4/Year4 (2).jpeg" alt=""></div>
+    <div class="question-reward" id="photo2"><img src="photos/Year 4/Year4 (2).jpeg" alt=""></div>
   </div>
 
   <!-- ============ WORD 3 ============ -->
@@ -60,7 +60,7 @@
       <button class="btn btn-secondary" onclick="backspace(3)">Backspace</button>
       <button class="btn" onclick="checkWord(3)">Submit</button>
     </div>
-    <div class="question-reward" id="photo3"><img src="/photos/Year 4/Year4 (3).jpeg" alt=""></div>
+    <div class="question-reward" id="photo3"><img src="photos/Year 4/Year4 (3).jpeg" alt=""></div>
   </div>
 
   <!-- ============ WORD 4 ============ -->
@@ -75,7 +75,7 @@
       <button class="btn btn-secondary" onclick="backspace(4)">Backspace</button>
       <button class="btn" onclick="checkWord(4)">Submit</button>
     </div>
-    <div class="question-reward" id="photo4"><img src="/photos/Year 4/Year4 (4).jpeg" alt=""></div>
+    <div class="question-reward" id="photo4"><img src="photos/Year 4/Year4 (4).jpeg" alt=""></div>
   </div>
 
   <!-- ============ WORD 5 ============ -->
@@ -90,7 +90,7 @@
       <button class="btn btn-secondary" onclick="backspace(5)">Backspace</button>
       <button class="btn" onclick="checkWord(5)">Submit</button>
     </div>
-    <div class="question-reward" id="photo5"><img src="/photos/Year 4/Year4 (5).jpeg" alt=""></div>
+    <div class="question-reward" id="photo5"><img src="photos/Year 4/Year4 (5).jpeg" alt=""></div>
   </div>
 
   <!-- corkboard memory wall -->
@@ -194,12 +194,12 @@
     }
 
     function finishYear() {
-      pinRewardPhoto("/photos/Year 4/Year4 (1).jpeg", "Coming home to each other.");
+      pinRewardPhoto("photos/Year 4/Year4 (1).jpeg", "Coming home to each other.");
       document.getElementById("corkBlock").classList.remove("btn-hidden");
       document.getElementById("nextLink").classList.remove("btn-hidden");
 
       // EDIT THIS: list every year 4 photo you want pinned to the board
-      buildCorkboard("cork4", "/photos/Year 4", [
+      buildCorkboard("cork4", "photos/Year 4", [
         "Year4 (6).jpeg", "Year4 (7).jpeg", "Year4 (8).jpeg", "Year4 (9).jpeg", "Year4 (10).jpeg",
         "Year4 (11).jpeg", "Year4 (12).jpeg", "Year4 (13).jpeg", "Year4 (14).jpeg", "Year4 (15).jpeg"
       ]);
@@ -210,8 +210,8 @@
     }
   </script>
 
-  <script src="/js/gallery.js"></script>
-  <script src="/js/popup.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/popup.js"></script>
 
 </body>
 </html>

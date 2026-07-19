@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Year Three</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="theme-sunset">
@@ -25,13 +25,13 @@
 
   <!-- milestone photo, appears after 2 pairs -->
   <div class="milestone-photo" id="milestone1">
-    <img src="/photos/Year 3/Year3 (7).jpeg" alt="">
+    <img src="photos/Year 3/Year3 (7).jpeg" alt="">
     <p class="milestone-caption">Nothing but love for you</p>
   </div>
 
   <!-- milestone photo, appears after 4 pairs -->
   <div class="milestone-photo" id="milestone2">
-    <img src="/photos/Year 3/Year3 (27).jpeg" alt="">
+    <img src="photos/Year 3/Year3 (27).jpeg" alt="">
     <p class="milestone-caption">No one but you</p>
   </div>
 
@@ -104,7 +104,7 @@
       if (card.type === "image") {
         const img = document.createElement("img");
         img.className = "match-card-img";
-        img.src = "/photos/Year 3/" + card.file;
+        img.src = "photos/Year 3/" + card.file;
         cardEl.appendChild(img);
       } else {
         const span = document.createElement("span");
@@ -189,12 +189,12 @@
 
       if (isCorrect) {
         status.textContent = "The lock clicks open.";
-        pinRewardPhoto("/photos/Year 3/Year3 (1).jpeg", "Your face when you realised it was real.");
+        pinRewardPhoto("photos/Year 3/Year3 (1).jpeg", "Your face when you realised it was real.");
         document.getElementById("galleryBlock3").classList.remove("btn-hidden");
         document.getElementById("nextLink").classList.remove("btn-hidden");
 
         // EDIT THIS: list every year 3 photo you want in the grid
-        buildMasonry("masonry3", "/photos/Year 3", [
+        buildMasonry("masonry3", "photos/Year 3", [
           "Year3 (9).jpeg", "Year3 (10).jpeg", "Year3 (5).jpeg", "Year3 (12).jpeg", "Year3 (13).jpeg",
           "Year3 (14).jpeg", "Year3 (15).jpeg", "Year3 (16).jpeg", "Year3 (17).jpeg", "Year3 (18).jpeg"
         ]);
@@ -204,8 +204,8 @@
     }
   </script>
 
-  <script src="/js/gallery.js"></script>
-  <script src="/js/popup.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/popup.js"></script>
 
 </body>
 </html>
